@@ -2,14 +2,289 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>chaimaa library</title> 
-  <title>chaimaa library</title>
   <!-- استدعاء خط أميري للعنوان -->
   <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@700&display=swap" rel="stylesheet">
 
   <style>
+    /* تجميع الزرين بجانب بعضهما في أعلى اليسار */
+/* زر Dark Mode */
+.theme-toggle-btn {
+  position: absolute !important;
+  left: 20px !important;
+  margin: 0 !important;
+  white-space: nowrap !important;
+  z-index: 100 !important;
+}
+
+/* زر Sign In يتم وضعه بجانبه مباشرة (على بُعد 150px من اليسار) */
+ .login-trigger-btn {
+  position: absolute !important;
+  left: 170px !important; /* مسافة تجعله بجانب زر Dark Mode تماماً */
+  top: 22px !important;
+  margin: 0 !important;
+  white-space: nowrap !important;
+  z-index: 100 !important;
+  background-color: #f472b6 !important; /* وردي فاتح */
+  color: #ffffff !important;
+  border: none !important;
+  padding: 8px 16px !important;
+  border-radius: 20px !important;
+  cursor: pointer !important;
+  font-weight: bold !important;
+}
+.login-trigger-btn:hover {
+  background-color: #f43f5e !important;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: bold®Ò
+}
+    .login-trigger-btn {
+  background-color: #d783ad; /* لون وردي جالم */
+  color: #eca9d8;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+/* لون وردي أغمق عند تحريك الماوس فوق الزر */
+.login-trigger-btn:hover {
+  background-color: #de7ea9;
+}
+    /* الخلفية والتنسيق العام */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #121212;
+  color: #e1a4d2;
+  margin: 0;
+  padding: 20px;
+}
+
+/* الهيدر وزر تسجيل الدخول */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #1e1e1e;
+  border-radius: 8px;
+  margin-bottom: 30px;
+}
+
+.login-trigger-btn {
+  background-color: #d89dcc;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.login-trigger-btn:hover {
+  background-color: #e9a5ea;
+}
+
+/* النافذة المنبثقة (Modal) */
+.modal {
+  display: none; 
+  position: fixed; 
+  z-index: 1000; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%; 
+  background-color: rgba(0, 0, 0, 0.7); 
+  backdrop-filter: blur(4px);
+}
+
+.modal-content {
+  background-color: #1e1e1e;
+  color: #fff;
+  margin: 12% auto;
+  padding: 30px;
+  border: 1px solid #333;
+  width: 90%;
+  max-width: 380px;
+  border-radius: 12px;
+  position: relative;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.6);
+}
+
+.close-btn {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 24px;
+  cursor: pointer;
+  color: #aaa;
+}
+
+.close-btn:hover { 
+  color: #fff; 
+}
+
+/* حقول الإدخال والأزرار */
+.input-group {
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+.input-group label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 14px;
+  color: #ccc;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #444;
+  background-color: #2a2a2a;
+  color: #fff;
+  box-sizing: border-box;
+  outline: none;
+}
+
+.input-group input:focus {
+  border-color: #ca7fb1;
+}
+
+.submit-btn {
+  width: 100%;
+  padding: 11px;
+  background-color: #e99dd7;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.submit-btn:hover { 
+  background-color: #da94ce; 
+}
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #121212;
+      color: #e0e0e0;
+      margin: 0;
+      padding: 20px;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      background-color: #1e1e1e;
+      border-radius: 8px;
+      margin-bottom: 30px;
+    }
+
+    .login-trigger-btn {
+      background-color: #ed9be8;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: all 0.3s ease;
+    }
+
+    .login-trigger-btn:hover {
+      background-color: #d67cbe;
+    }
+
+    .modal {
+      display: none; 
+      position: fixed; 
+      z-index: 1000; 
+      left: 0;
+      top: 0;
+      width: 100%; 
+      height: 100%; 
+      background-color: rgba(0, 0, 0, 0.7); 
+      backdrop-filter: blur(4px);
+    }
+
+    .modal-content {
+      background-color: #1e1e1e;
+      color: #fff;
+      margin: 12% auto;
+      padding: 30px;
+      border: 1px solid #333;
+      width: 90%;
+      max-width: 380px;
+      border-radius: 12px;
+      position: relative;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.6);
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      font-size: 24px;
+      cursor: pointer;
+      color: #aaa;
+    }
+
+    .close-btn:hover { color: #fff; }
+
+    .input-group {
+      margin-bottom: 15px;
+      text-align: left;
+    }
+
+    .input-group label {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 14px;
+      color: #ccc;
+    }
+
+    .input-group input {
+      width: 100%;
+      padding: 10px;
+      border-radius: 6px;
+      border: 1px solid #444;
+      background-color: #2a2a2a;
+      color: #fff;
+      box-sizing: border-box;
+      outline: none;
+    }
+
+    .input-group input:focus {
+      border-color: #e38ed2;
+    }
+
+    .submit-btn {
+      width: 100%;
+      padding: 11px;
+      background-color: #dd8fc6;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+
+    .submit-btn:hover { background-color: #dc8bca; }
      body{
       background-color: #e0dfcc;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -239,12 +514,16 @@ body.dark-mode .author-books a {
     background-color: #41363d !important;
     color: #e6d0db !important;
 }
+
   </style>
 </head>
 
 <body>
-  <button id="theme-toggle" class="theme-toggle-btn">🌙 Dark Mode</button>
- 
+  <div class="header-controls">
+     <button id="theme-toggle" class="theme-toggle-btn">Dark Mode 🌙</button>
+
+     <button id="openLoginBtn" class="login-trigger-btn">Sign In</button>
+  </div>
     <h1>📚 chaimaa   library </h1>
    
 
@@ -315,6 +594,101 @@ authorBtns.forEach(btn => {
     });
 });
   </script>
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+    import { 
+      getAuth, 
+      createUserWithEmailAndPassword, 
+      signInWithEmailAndPassword, 
+      onAuthStateChanged, 
+      signOut 
+    } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
+  
+    const firebaseConfig = {
+      apiKey: "AIzaSyCqmgwfocsRLMSvsixbgKOxJRMrogNAFU",
+      authDomain: "chaimaa-library.firebaseapp.com",
+      projectId: "chaimaa-library",
+      storageBucket: "chaimaa-library.firebasestorage.app",
+      messagingSenderId: "1888845686237",
+      appId: "1:1888845686237:web:651bfab495fb45264a8234",
+      measurementId: "G-PVKKYKQCAF"
+    };
+  
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+  
+    const modal = document.getElementById("loginModal");
+    const btn = document.getElementById("openLoginBtn");
+    const span = document.getElementsByClassName("close-btn")[0];
+    const loginForm = document.getElementById("loginForm");
+  
+    if (btn) {
+      btn.onclick = () => {
+        if (auth.currentUser) {
+          if (confirm("Do you want to log out?")) signOut(auth);
+        } else {
+          if (modal) modal.style.display = "block";
+        }
+      };
+    }
+  
+    if (span) {
+      span.onclick = () => { if (modal) modal.style.display = "none"; };
+    }
+  
+    window.onclick = (e) => {
+      if (e.target === modal) modal.style.display = "none";
+    };
+  
+    if (loginForm) {
+      loginForm.onsubmit = async (e) => {
+        e.preventDefault();
+        const email = document.getElementById("emailInput").value;
+        const password = document.getElementById("passwordInput").value;
+  
+        try {
+          await signInWithEmailAndPassword(auth, email, password);
+          alert("Successfully logged in!");
+          if (modal) modal.style.display = "none";
+        } catch (error) {
+          if (error.code === 'auth/user-not-found' || error.code === 'auth/invalid-credential') {
+            try {
+              await createUserWithEmailAndPassword(auth, email, password);
+              alert("New account created and logged in successfully!");
+              if (modal) modal.style.display = "none";
+            } catch (createError) {
+              alert("Error: " + createError.message);
+            }
+          } else {
+            alert("Error: " + error.message);
+          }
+        }
+      };
+    }
+  
+    onAuthStateChanged(auth, (user) => {
+      if (btn) {
+        if (user) {
+          btn.innerText = "Welcome, " + user.email.split('@')[0] + " (Logout)";
+          btn.style.backgroundColor = "#fbcfe8";
+        } else {
+          btn.innerText = "Sign In";
+          btn.style.backgroundColor = "#fbcfe8";
+        }
+      }
+    });
+  </script>
+ <div id="loginModal" class="modal">
+  <div class="modal-content">
+    <span class="close-btn">&times;</span>
+    <h2>Sign In</h2>
+    <form id="loginForm">
+      <input type="email" id="emailInput" placeholder="Email" required>
+      <input type="password" id="passwordInput" placeholder="Password" required>
+      <button type="submit">Sign In / Register</button>
+    </form>
+  </div>
+</div> 
 </body>
 
 </html>
