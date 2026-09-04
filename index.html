@@ -20,15 +20,14 @@
   z-index: 100 !important;
 }
 
-/* زر Sign In يتم وضعه بجانبه مباشرة (على بُعد 150px من اليسار) */
- .login-trigger-btn {
+.login-trigger-btn {
   position: absolute !important;
   left: 170px !important; /* مسافة تجعله بجانب زر Dark Mode تماماً */
   top: 22px !important;
   margin: 0 !important;
   white-space: nowrap !important;
   z-index: 100 !important;
-  background-color: #f472b6 !important; /* وردي فاتح */
+  background-color: #dd9cd3 !important; /* وردي فاتح */
   color: #ffffff !important;
   border: none !important;
   padding: 8px 16px !important;
@@ -37,7 +36,7 @@
   font-weight: bold !important;
 }
 .login-trigger-btn:hover {
-  background-color: #f43f5e !important;
+  background-color: #e4a4af !important;
   border: none;
   padding: 8px 16px;
   border-radius: 20px;
@@ -45,8 +44,8 @@
   font-weight: bold®Ò
 }
     .login-trigger-btn {
-  background-color: #d783ad; /* لون وردي جالم */
-  color: #eca9d8;
+  background-color: #d8b0c4; /* لون وردي جالم */
+  color: #eab0d9;
   border: none;
   padding: 8px 16px;
   border-radius: 20px;
@@ -57,7 +56,7 @@
 
 /* لون وردي أغمق عند تحريك الماوس فوق الزر */
 .login-trigger-btn:hover {
-  background-color: #de7ea9;
+  background-color: #e7bccf;
 }
     /* الخلفية والتنسيق العام */
 body {
@@ -93,6 +92,23 @@ header {
 .login-trigger-btn:hover {
   background-color: #e9a5ea;
 }
+/* ترتيب المجموعات عمودياً */
+#loginForm {
+  display: flex;
+  flex-direction: column;
+  gap: 12px; /* مسافة بين كل خانة وأخرى */
+}
+
+/* تنسيق خانات الإدخال */
+.input-group input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #444;
+  background-color: #2a2a2a;
+  color: #fff;
+  box-sizing: border-box;
+}
 
 /* النافذة المنبثقة (Modal) */
 .modal {
@@ -103,7 +119,7 @@ header {
   top: 0;
   width: 100%; 
   height: 100%; 
-  background-color: rgba(0, 0, 0, 0.7); 
+  background-color: rgba(55, 47, 52, 0.7); 
   backdrop-filter: blur(4px);
 }
 
@@ -126,7 +142,7 @@ header {
   right: 20px;
   font-size: 24px;
   cursor: pointer;
-  color: #aaa;
+  color: #da9ac6;
 }
 
 .close-btn:hover { 
@@ -284,7 +300,7 @@ header {
       margin-top: 10px;
     }
 
-    .submit-btn:hover { background-color: #dc8bca; }
+    .submit-btn:hover { background-color: #f1c5e8; }
      body{
       background-color: #e0dfcc;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -374,6 +390,11 @@ header {
       font-weight: 600;
       transition: all 0.3s ease;
     }
+    .modal-content {
+  width: 90%;
+  max-width: 400px; /* زيادة العرض قليلاً لتتسع للجميع */
+  padding: 25px;
+}
 
     a:hover {
       background-color: #e0a7cf;
@@ -433,7 +454,7 @@ body.dark-mode a {
 body.dark-mode .section-title,
 body.dark-mode .author-title,
 body.dark-mode h1 {
-    color: #f2e3f4 !important;
+    color: #ce96b7 !important;
 }
 .authors-grid {
     display: flex;
@@ -456,12 +477,13 @@ body.dark-mode h1 {
 }
 
 .author-btn {
-    background-color: #f2e3f4;
-    color: #1b1717;
+    background-color: #deaacf;
+    color: #0b0a0a;
     border: none;
     padding: 12px;
     width: 100%;
     border-radius: 10px;
+    margin-bottom: 15px;
     font-size: 16px;
     font-weight: bold;
     cursor: pointer;
@@ -486,14 +508,14 @@ body.dark-mode h1 {
 }
 
 .author-books li {
-    margin: 8px 0;
+    margin: 0px 0;
 }
 
 .author-books a {
     display: block;
     padding: 8px;
     background-color: #f9f9f9;
-    color: #333;
+    color: #181717;
     border-radius: 6px;
     text-decoration: none;
     font-size: 14px;
@@ -501,17 +523,20 @@ body.dark-mode h1 {
 }
 
 body.dark-mode .author-card {
-    background: #4b414a !important;
-    border-color: #333 !important;
+    background: #110f10 !important;
+    border-color: #020202 !important;
 }
-
+body .dark-mode.author-btn {
+  background-color: #0b0a0a;
+    color: #0b0a0a;
+}
 body.dark-mode .author-btn {
-    background-color: #2e2e2e !important;
-    color: #e8d0e3 !important;
+    background-color: #282025 !important;
+    color: #e9b9d9 !important;
 }
 
 body.dark-mode .author-books a {
-    background-color: #41363d !important;
+    background-color: #deb7d0 !important;
     color: #e6d0db !important;
 }
 
@@ -519,6 +544,22 @@ body.dark-mode .author-books a {
 </head>
 
 <body>
+<!-- 1. نافذة تسجيل الدخول الجديدة -->
+<div id="loginModal" class="modal">
+  <div class="modal-content">
+    <span class="close-btn">&times;</span>
+    <h2>Sign In</h2>
+
+    <form id="loginForm">
+      <input type="text" id="nameInput" placeholder="Full Name" required>
+      <input type="email" id="emailInput" placeholder="Email" required>
+      <input type="password" id="passwordInput" placeholder="Password" required>
+      
+      <button type="submit">Sign In / Register</button>
+    </form>
+  </div>
+</div>
+  
   <div class="header-controls">
      <button id="theme-toggle" class="theme-toggle-btn">Dark Mode 🌙</button>
 
@@ -552,7 +593,7 @@ body.dark-mode .author-books a {
         <li><a href="https://www.google.com/search?q=تحميل+كتاب+غزل+البنات+خولة+حمدي" target="_blank">غزل البنات🎀</a></li>
       </ul>
     </div>
-    <button class="author-btn">اسامة مسلم</button>
+    <button class="author-btn">روايات اسامة مسلم</button>
     <div class="author-books">
       <ul>
         <li><a href="https://www.google.com/search?q=تحميل+كتاب+خوف+أسامة+المسلم" target="_blank">خوف🖤</a></li>
@@ -568,7 +609,7 @@ body.dark-mode .author-books a {
     <p class="subtitle">Wish you a wonderful reading experience</p>
     <script>
       const toggleBtn = document.getElementById('theme-toggle');
-  
+
       toggleBtn.addEventListener('click', () => {
           document.body.classList.toggle('dark-mode');
           
@@ -577,106 +618,97 @@ body.dark-mode .author-books a {
           } else {
               toggleBtn.innerText = '🌙 Dark Mode';
           }
-      });
-  </script>
-  <script>
-    const authorBtns = document.querySelectorAll('.author-btn');
-
-authorBtns.forEach(btn => {
-    btn.addEventListener('click', function() {
-        const booksDiv = this.nextElementSibling;
-        
-        if (booksDiv.style.maxHeight) {
-            booksDiv.style.maxHeight = null;
-        } else {
-            booksDiv.style.maxHeight = booksDiv.scrollHeight + "px";
-        }
-    });
-});
-  </script>
-  <script type="module">
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+      })
+    </script>
+      <script type="module">
     import { 
-      getAuth, 
-      createUserWithEmailAndPassword, 
-      signInWithEmailAndPassword, 
-      onAuthStateChanged, 
-      signOut 
-    } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
-  
-    const firebaseConfig = {
+  getAuth, 
+  signInWithEmailAndPassword, 
+  createUserWithEmailAndPassword, 
+  updateProfile 
+} 
+from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
+const firebaseConfig = {
   apiKey: "AIzaSyCqmgwfocsRLWSvsixbgBKpxJRMRqgNAFU",
   authDomain: "chaimaa-library.firebaseapp.com",
   projectId: "chaimaa-library",
   storageBucket: "chaimaa-library.firebasestorage.app",
   messagingSenderId: "1088845686237",
-  appId: "1:1088845686237:web:651bfab495fb45264o234",
+  appId: "1:1088845686237:web:651bfab495fb45264a0234",
   measurementId: "G-PVKKYKQC4F"
 };
-  
-    const app = initializeApp(firebaseConfig);
-    const auth = getAuth(app);
-  
-    const modal = document.getElementById("loginModal");
-    const btn = document.getElementById("openLoginBtn");
-    const span = document.getElementsByClassName("close-btn")[0];
-    const loginForm = document.getElementById("loginForm");
-  
-    if (btn) {
-      btn.onclick = () => {
-        if (auth.currentUser) {
-          if (confirm("Do you want to log out?")) signOut(auth);
-        } else {
-          if (modal) modal.style.display = "block";
-        }
-      };
-    }
-  
-    if (span) {
-      span.onclick = () => { if (modal) modal.style.display = "none"; };
-    }
-  
-    window.onclick = (e) => {
-      if (e.target === modal) modal.style.display = "none";
-    };
-  
-    if (loginForm) {
-      loginForm.onsubmit = async (e) => {
-        e.preventDefault();
-        const email = document.getElementById("emailInput").value;
-        const password = document.getElementById("passwordInput").value;
-  
+
+// 1. تحديد عناصر النافذة والأزرار من HTML
+const modal = document.getElementById("loginModal");
+const btn = document.getElementById("openLoginBtn");
+const closeBtn = document.querySelector(".close-btn");
+const loginForm = document.getElementById("loginForm");
+
+// 2. التحكم في فتح وإغلاق النافذة
+if (btn && modal) {
+  btn.onclick = () => {
+    modal.style.display = "block";
+  };
+}
+
+if (closeBtn && modal) {
+  closeBtn.onclick = () => {
+    modal.style.display = "none";
+  };
+}
+
+window.onclick = (event) => {
+  if (modal && event.target === modal) {
+    modal.style.display = "none";
+  }
+};
+
+// 3. معالجة إرسال النموذج وحفظ الاسم في Firebase
+if (loginForm) {
+  loginForm.onsubmit = async (e) => {
+    e.preventDefault();
+
+    // قراءة البيانات من حقول الإدخال
+    const name = document.getElementById("nameInput")?.value;
+    const email = document.getElementById("emailInput")?.value;
+    const password = document.getElementById("passwordInput")?.value;
+
+    const auth = getAuth();
+
+    try {
+      // محاولة تسجيل الدخول للمستخدمين القدامى
+      await signInWithEmailAndPassword(auth, email, password);
+      alert("Successfully logged in!");
+      if (modal) modal.style.display = "none";
+
+    } catch (error) {
+      // في حال عدم وجود حساب، يتم إنشاء حساب جديد مع إضافة الاسم
+      if (error.code === 'auth/user-not-found' || error.code === 'auth/invalid-credential') {
         try {
-          await signInWithEmailAndPassword(auth, email, password);
-          alert("Successfully logged in!");
-          if (modal) modal.style.display = "none";
-        } catch (error) {
-          if (error.code === 'auth/user-not-found' || error.code === 'auth/invalid-credential') {
-            try {
-              await createUserWithEmailAndPassword(auth, email, password);
-              alert("New account created and logged in successfully!");
-              if (modal) modal.style.display = "none";
-            } catch (createError) {
-              alert("Error: " + createError.message);
-            }
-          } else {
-            alert("Error: " + error.message);
+          // إنشاء الحساب
+          const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+          
+          // تحديث اسم المستخدم وحفظه في البروفايل
+          if (name) {
+            await updateProfile(userCredential.user, {
+              displayName: name
+            });
           }
+
+          alert("New account created and logged in successfully!");
+          if (modal) modal.style.display = "none";
+
+        } catch (createError) {
+          alert("Error creating account: " + createError.message);
         }
-      };
-    }
-  
-    onAuthStateChanged(auth, (user) => {
-      if (btn) {
-        if (user) {
-          btn.innerText = "Welcome, " + user.email.split('@')[0] + " (Logout)";
-          btn.style.backgroundColor = "#fbcfe8";
-        } else {
-          btn.innerText = "Sign In";
-          btn.style.backgroundColor = "#fbcfe8";
-        }
+      } else {
+        alert("Error: " + error.message);
       }
-    });
+    }
+  };
+}
   </script>
  <div id="loginModal" class="modal">
   <div class="modal-content">
@@ -685,10 +717,13 @@ authorBtns.forEach(btn => {
     <form id="loginForm">
       <input type="email" id="emailInput" placeholder="Email" required>
       <input type="password" id="passwordInput" placeholder="Password" required>
+      <input type="name" id="nameInput"placeholder="name" required>
       <button type="submit">Sign In / Register</button>
     </form>
   </div>
 </div> 
+<script src="script.js"></script>
+</body>
 </body>
 
 </html>
