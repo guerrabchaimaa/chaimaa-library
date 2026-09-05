@@ -713,7 +713,7 @@ if (loginForm) {
 
     try {
       // محاولة تسجيل الدخول للمستخدمين القدامى
-      await signInWithEmailAndPassword(name, email, password);
+      await signInWithEmailAndPassword(auth, email, password);
       alert("Successfully logged in!");
       if (modal) modal.style.display = "none";
 
@@ -722,7 +722,7 @@ if (loginForm) {
       if (error.code === 'auth/user-not-found' || error.code === 'auth/invalid-credential') {
         try {
           // إنشاء الحساب
-          const userCredential = await createUserWithEmailAndPassword(name, email, password);
+          const userCredential = await createUserWithEmailAndPassword(auth, email, password);
           
           // تحديث اسم المستخدم وحفظه في البروفايل
           if (name) {
