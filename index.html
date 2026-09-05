@@ -743,22 +743,6 @@ if (loginForm) {
     }
   };
 }
-// مراقبة تسجيل الدخول وعرض الترحيب تلقائيًا
-onAuthStateChanged(auth, (user) => {
-  const welcomeDiv = document.getElementById("welcomeMessage");
-  const userNameSpan = document.getElementById("userNameDisplay");
-  const openAuthModalBtn = document.getElementById("openLoginBtn");
-
-  if (user) {
-    const displayName = user.displayName || user.email.split('@')[0];
-    if (userNameSpan) userNameSpan.textContent = displayName;
-    if (welcomeDiv) welcomeDiv.style.display = "block";
-    if (openAuthModalBtn) openAuthModalBtn.style.display = "none";
-  } else {
-    if (welcomeDiv) welcomeDiv.style.display = "none";
-    if (openAuthModalBtn) openAuthModalBtn.style.display = "inline-block";
-  }
-});
   </script>
 </body>
 </body>
