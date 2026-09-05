@@ -577,10 +577,6 @@ body.dark-mode .author-books a {
 <body>
 <!-- 1. نافذة تسجيل الدخول الجديدة -->
 <div id="loginModal" class="modal">
-  <div id="welcomeMessage" style="display: none; align-items: center; gap: 10px;">
-    <span>Welcome, <strong id="userNameDisplay"></strong>! 👋</span>
-    <button id="logoutBtn" style="padding: 5px 10px; cursor: pointer;">Sign Out</button>
-  </div>
   <div class="modal-content">
     <span class="close-btn">&times;</span>
     <h2>Sign In</h2>
@@ -768,34 +764,6 @@ window.addEventListener("click", (event) => {
     modal.style.display = "none";
   }
 });
-// 1. الترحيب التلقائي عند دخول المستخدم
-onAuthStateChanged(auth, (user) => {
-  const welcomeDiv = document.getElementById("welcomeMessage");
-  const userNameSpan = document.getElementById("userNameDisplay");
-  const openAuthModalBtn = document.getElementById("openAuthModalBtn"); // زر Sign In الرئيسي
-
-  if (user) {
-    // عرض الاسم أو الجزء الأول من الإيميل
-    const name = user.displayName ? user.displayName : user.email.split('@')[0];
-    if (userNameSpan) userNameSpan.textContent = name;
-    
-    if (welcomeDiv) welcomeDiv.style.display = "flex";
-    if (openAuthModalBtn) openAuthModalBtn.style.display = "none";
-  } else {
-    if (welcomeDiv) welcomeDiv.style.display = "none";
-    if (openAuthModalBtn) openAuthModalBtn.style.display = "inline-block";
-  }
-});
-
-// 2. زر تسجيل الخروج
-const logoutBtn = document.getElementById("logoutBtn");
-if (logoutBtn) {
-  logoutBtn.addEventListener("click", () => {
-    auth.signOut().then(() => {
-      alert("Logged out successfully!");
-    });
-  });
-}
   </script>
 </body>
 </body>
