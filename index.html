@@ -676,12 +676,12 @@ body.dark-mode .author-books a {
 
 // 1. تحديد عناصر النافذة والأزرار من HTML
 const modal = document.getElementById("loginModal");
-const btn = document.getElementById("openLoginBtn");
+const btn = document.getElementById("open-btn");
 const closeBtn = document.querySelector(".close-btn");
 const loginForm = document.getElementById("loginForm");
 
 // 2. التحكم في فتح وإغلاق النافذة
-if (openLoginBtn && modal) {
+if (openBtn && modal) {
   btn.onclick = () => {
     modal.style.display = "block";
   };
